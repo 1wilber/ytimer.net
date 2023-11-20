@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux"
 import { Typography, CircularProgress, } from "@mui/material";
-import { FilledContainer } from './Scramble.styled'
+import { ScrambleContainer } from "./show-scramble.styled";
 
-function Scramble() {
+export const ShowScramble = () => {
   const currentScramble = useSelector(({ scrambler }) => scrambler.currentScramble)
   const loading = useSelector(({ scrambler }) => scrambler.loading)
 
@@ -15,7 +15,7 @@ function Scramble() {
   }
 
   return (
-    <FilledContainer sx={containerStyles} maxWidth="md">
+    <ScrambleContainer sx={containerStyles} maxWidth="md">
       {
         loading ?
           <CircularProgress sx={{ color: { xs: "primary", md: "white" } }} />
@@ -29,8 +29,6 @@ function Scramble() {
             {currentScramble}
           </Typography>
       }
-    </FilledContainer>
+    </ScrambleContainer>
   )
 }
-
-export default Scramble

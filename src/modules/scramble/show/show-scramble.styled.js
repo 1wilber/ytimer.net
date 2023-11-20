@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Container } from "@mui/material";
 
-const FilledContainer = styled(Container)(({ theme }) => ({
+const ScrambleContainer = styled(Container)(({ theme }) => ({
   display: "block",
   padding: "1.5rem",
   marginTop: ".7rem",
@@ -10,5 +10,5 @@ const FilledContainer = styled(Container)(({ theme }) => ({
 }))
 
 export {
-  FilledContainer,
+  ScrambleContainer,
 }
