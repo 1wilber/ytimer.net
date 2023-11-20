@@ -1,13 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './assets/main.css'
 import { Provider } from 'react-redux'
 import stores from '@/store'
 import { PersistGate } from 'redux-persist/integration/react'
+import './assets/main.css'
 
 
-console.log(stores())
 const { store, persistor } = stores()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

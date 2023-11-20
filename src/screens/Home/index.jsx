@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <HomeContainer data-testid='home-container'>
-      <Drawer drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle} setDrawerOpen={setDrawerOpen}/>
+      <Drawer drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle} setDrawerOpen={setDrawerOpen} />
       <Box
         component="main"
         height="100%"
