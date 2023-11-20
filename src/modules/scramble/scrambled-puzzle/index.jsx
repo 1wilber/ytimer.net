@@ -2,9 +2,9 @@ import 'cubing/twisty'
 import PropTypes from "prop-types"
 import { Box, CircularProgress, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux"
-import { eventTypes } from './ScrambleDisplay.constants.js'
+import { eventTypes } from './scrambled-puzzle.constants.js';
 
-function ScramblerDisplay() {
+export const ScrambledPuzzle = () => {
   const currentScramble = useSelector(({ scrambler }) => scrambler.currentScramble)
   const loading = useSelector(({ scrambler }) => scrambler.loading)
   const currentEvent = useSelector(({ timer }) => timer.currentEvent)
@@ -32,8 +32,6 @@ function ScramblerDisplay() {
   )
 }
 
-PropTypes.ScramblerDisplay = {
+PropTypes.ScrambledPuzzle = {
   event: PropTypes.string.isRequired,
 }
-
-export default ScramblerDisplay

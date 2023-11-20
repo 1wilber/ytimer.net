@@ -3,15 +3,15 @@ import { CenterFlex, HomeDrawer, Brand, AsideInfo, AsideActions } from '@/screen
 import { Button, Box, useMediaQuery } from '@mui/material';
 
 // Components
-import EventSwitcher from "@/components/EventSwitcher";
-import ModeSwitcher from "@/components/ModeSwitcher";
 import AverageInfo from '@/components/AverageInfo'
+import { ModeSwitcher } from "../mode-switcher";
 
 import { useDispatch } from 'react-redux';
 import { removeAll } from "@/reducers/timerReducer"
 // Logo import
 import Logo from '@/assets/ytimer-logo.png'
 import { TimesList } from "@/modules/times/list";
+import { EventsList } from "@/modules/events/list";
 
 const Drawer = (props) => {
   const { drawerOpen, handleDrawerToggle, setDrawerOpen } = props
@@ -49,7 +49,7 @@ const Drawer = (props) => {
           </Box>
 
           <Box sx={{ width: "100%", marginBottom: 1 }} >
-            <EventSwitcher />
+            <EventsList />
           </Box>
 
           <AsideInfo>

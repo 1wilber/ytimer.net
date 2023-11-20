@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentEvent } from '@/reducers/timerReducer';
 
 
-function EventSwitcher() {
+export const EventsList = () => {
   const dispatch = useDispatch()
   const currentEvent = useSelector(({ timer }) => timer.currentEvent)
 
@@ -35,5 +35,3 @@ function EventSwitcher() {
     </Select>
   )
 }
-
-export default EventSwitcher

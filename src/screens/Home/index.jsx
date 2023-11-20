@@ -1,5 +1,3 @@
-import Timer from "@/components/Timer";
-import ScrambleDisplay from '@/components/ScrambleDisplay';
 import Drawer from "@/components/Home/Drawer"
 import Logo from '@/assets/ytimer-logo.png'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,6 +5,8 @@ import { useRef, useState } from "react";
 import { HomeContainer } from './Home.styled';
 import { Box } from "@mui/material";
 import { ShowScramble } from "@/modules/scramble/show";
+import { CreateTime } from "@/modules/times/create";
+import { ScrambledPuzzle } from '@/modules/scramble/scrambled-puzzle';
 
 function Home() {
   const ref = useRef(null)
@@ -40,10 +40,10 @@ function Home() {
           <ShowScramble />
 
           <Box ref={ref} flex={2} display="flex" justifyContent="center" alignItems="center">
-            <Timer container={ref} />
+            <CreateTime container={ref} />
           </Box>
 
-          <ScrambleDisplay />
+          <ScrambledPuzzle />
         </Box>
       </Box>
     </HomeContainer>

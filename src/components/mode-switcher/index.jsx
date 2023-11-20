@@ -1,8 +1,8 @@
 import { setMode } from "@/reducers/scramblerReducer"
 import { useDispatch, useSelector } from "react-redux";
-import { MaterialUISwitch } from "./ModeSwitcher.styled";
+import { MaterialUISwitch } from "./mode-switcher.styled";
 
-function ModeSwitcher() {
+export const ModeSwitcher = () => {
   const dispatch = useDispatch()
   const { mode } = useSelector(({ scrambler }) => scrambler)
 
@@ -29,5 +29,3 @@ function ModeSwitcher() {
     <MaterialUISwitch onClick={handleClose} checked={mode === "dark"} onChange={handleOnChangeMode} />
   )
 }
-
-export default ModeSwitcher

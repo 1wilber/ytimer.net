@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
-import { fetchScramble } from '../../reducers/scramblerReducer'
 import useTimer from '@/hooks/useTimer'
 import useKeyUp from '@/hooks/useKeyUp'
 import { msToTime } from '@/utils'
 import { useEffect, useState } from "react"
 import { addTime } from "@/reducers/timerReducer"
 import useTouchEnd from "@/hooks/useTouchEnd"
-import { TimerContainer } from "./Timer.styled"
-import './Timer.styles.css'
+import './create-time.styles.css'
 import { Typography } from "@mui/material"
+import { fetchScramble } from "@/reducers/scramblerReducer"
 
 
-function Timer(props) {
+export const CreateTime = (props) => {
   const { container } = props
   const { start, stop, lastTimeMs, currentTimeMs } = useTimer()
   const [loading, setLoading] = useState(true)
@@ -67,4 +66,3 @@ function Timer(props) {
   )
 }
 
-export default Timer
