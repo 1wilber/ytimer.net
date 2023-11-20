@@ -1,4 +1,4 @@
-import { Paper, Table, TableBody, TableCell, TableHead } from '@mui/material';
+import { Paper, TableCell } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const TableCellHead = styled(TableCell)(({ theme }) => ({
@@ -7,7 +7,7 @@ const TableCellHead = styled(TableCell)(({ theme }) => ({
   padding: ".50rem .25rem",
 }))
 
-const AsideHistory = styled(Paper)(({ theme }) => ({
+const AsideHistory = styled(Paper)(() => ({
   boxShadow: "none",
   overflowY: "auto",
   "&::-webkit-scrollbar": {

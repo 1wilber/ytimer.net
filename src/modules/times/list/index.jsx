@@ -7,16 +7,14 @@ import {
   TableCell
 } from '@mui/material';
 
-import {
-  TableCellHead,
-  AsideHistory,
-} from "./TimerHistory.styled.js"
-import TableItem from "./TableItem"
+import TableItem from "./table-item"
 import { useSelector } from 'react-redux';
 import { getCurrentAvgTimes, timesByEvent } from '@/selectors/times/index.js';
 import { getCurrentAvgHighestTime, getCurrentAvgLowestTime } from '@/utils/index.js';
+import { TableCellHead, AsideHistory  } from './times-list.styled';
+  
 
-function TimerHistory() {
+export const TimesList = () => {
   const { avgClicked } = useSelector(({ timer }) => timer)
   const times = useSelector(state => timesByEvent(state))
   const currentAvgTimes = useSelector(state => getCurrentAvgTimes(state, avgClicked))
@@ -49,5 +47,3 @@ function TimerHistory() {
     </TableContainer>
   )
 }
-
-export default TimerHistory
