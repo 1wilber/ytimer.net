@@ -5,13 +5,13 @@ export const ShowScramble = () => {
   const loading = useSelector(({ scrambler }) => scrambler.loading)
 
   return (
-    <div className="card card-compact bg-base-100 mt-10 mx-10">
+    <div className="md:max-w-4xl max-w-full  self-center card card-compact bg-base-300">
       <div className="card-body">
         {
           loading ?
             <div className="loading loading-spinner loading-md" />
             :
-            <p className="text-xl font-bold">{currentScramble}</p>
+            <p className="text-center text-sm md:text-xl  font-bold">{currentScramble}</p>
         }
       </div>
     </div>

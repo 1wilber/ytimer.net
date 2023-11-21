@@ -26,12 +26,6 @@ export const msToTime = (duration) => {
 
 }
 
-export const getAvgCurrentTimes = (currentTimes, avgTarget) => {
-  if(!currentTimes.length) return []
-
-  return currentTimes.slice(0, avgTarget) // .sort((a, b) => a.time - b.time)
-}
-
 export const calculateAvg = (currentAvgTimes, avgTarget) => {
   if (currentAvgTimes.length < avgTarget) return 0
   if (!currentAvgTimes.length) return 0
@@ -42,10 +36,3 @@ export const calculateAvg = (currentAvgTimes, avgTarget) => {
   return secondsToMs(result)
 }
 
-export const getCurrentAvgLowestTime = (currentAvgTimes) => {
-  return currentAvgTimes.sort((a, b) => b.time - a.time)[currentAvgTimes.length - 1]
-}
-
-export const getCurrentAvgHighestTime = (currentAvgTimes) => {
-  return currentAvgTimes.sort((a, b) => b.time - a.time)[0]
-}

@@ -4,7 +4,6 @@ import { randomScrambleForEvent } from 'cubing/scramble'
 const initialState = {
   currentScramble: "",
   loading: true,
-  mode: "light"
 }
 
 const fetchScramble = createAsyncThunk('scrambler/generate', async (event, _) => {

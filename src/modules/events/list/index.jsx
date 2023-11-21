@@ -1,4 +1,3 @@
-import { Select, MenuItem } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentEvent } from '@/reducers/timerReducer';
 
@@ -19,19 +18,19 @@ export const EventsList = () => {
   }
 
   return (
-    <Select
-      size='small'
-      fullWidth
-      onChange={handleEventChange}
-      onClose={handleClose}
-      value={currentEvent}
-    >
-      <MenuItem value="222">2x2</MenuItem>
-      <MenuItem value="333">3x3</MenuItem>
-      <MenuItem value="444">4x4</MenuItem>
-      <MenuItem value="555">5x5</MenuItem>
-      <MenuItem value="666">6x6</MenuItem>
-      <MenuItem value="777">7x7</MenuItem>
-    </Select>
+    <div className='form-control w-full'>
+      <label className='label'>
+        <span className='label-text'>Evento</span>
+      </label>
+      <select onChange={handleEventChange} onClose={handleClose} className="select select-bordered w-full max-w-xs">
+
+        <option value="222">2x2</option>
+        <option value="333">3x3</option>
+        <option value="444">4x4</option>
+        <option value="555">5x5</option>
+        <option value="666">6x6</option>
+        <option value="777">7x7</option>
+      </select>
+    </div>
   )
 }

@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentTimes: [],
-  currentEvent: '333',
-  avgClicked: 5,
+  currentEvent: '333'
 }
 
 const timerReducer = createSlice({
@@ -29,17 +28,13 @@ const timerReducer = createSlice({
       return Object.assign({}, state, { currentTimes: newCurrentTimes })
     },
 
-    setAvgCliked: (state, { payload }) => {
-      return Object.assign({}, state, { avgClicked: payload })
-    },
-
     setCurrentEvent: (state, action) => {
       return Object.assign({}, state, { currentEvent: action.payload })
     }
   }
 })
 
-export const { setTimerStatus, addTime, removeAll, removeTime, setAvgCliked, setCurrentAvgs, setCurrentEvent } = timerReducer.actions
+export const { setTimerStatus, addTime, removeAll, removeTime, setCurrentAvgs, setCurrentEvent } = timerReducer.actions
 export {
   initialState
 }

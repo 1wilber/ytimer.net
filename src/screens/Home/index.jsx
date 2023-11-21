@@ -1,52 +1,49 @@
 import Drawer from "@/components/Home/Drawer"
 import Logo from '@/assets/ytimer-logo.png'
-import MenuIcon from '@mui/icons-material/Menu';
 import { useRef, useState } from "react";
-import { HomeContainer } from './Home.styled';
-import { Box } from "@mui/material";
 import { ShowScramble } from "@/modules/scramble/show";
 import { CreateTime } from "@/modules/times/create";
 import { ScrambledPuzzle } from '@/modules/scramble/scrambled-puzzle';
 
 function Home() {
   const ref = useRef(null)
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  function handleDrawerToggle() {
-    setDrawerOpen(!drawerOpen)
-  }
 
   return (
-    <HomeContainer data-testid='home-container'>
-      <Drawer drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle} setDrawerOpen={setDrawerOpen} />
-      <Box
-        component="main"
-        height="100%"
-        sx={{ flexGrow: 1, bgcolor: 'secondary.dark' }}
-      >
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="space-between"
-          height="inherit"
-        >
-          <Box height="50px" sx={{ backgroundColor: "primary.light", display: { xs: "block", md: "none" } }} variant="nav" >
-            <Box sx={{ paddingX: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <img src={Logo} width="150px" alt="Ytimer logo" />
-              <MenuIcon color="primary" onClick={handleDrawerToggle} />
-            </Box>
-          </Box>
+    <div className="drawer lg:drawer-open h-full">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        <div className="w-full navbar bg-base-100 lg:hidden">
+          <div className="flex-none lg:hidden">
+            <label for="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </label>
+          </div>
+          <div className="flex-1 px-2 mx-2 lg:hidden">
+            <img src={Logo} alt="logo" className="h-10" />
+          </div>
+          <div className="flex-none hidden lg:block">
+            <ul className="menu menu-horizontal">
+            </ul>
+          </div>
+        </div>
 
+        <div className="flex flex-col justify-between h-full px-3 py-3">
           <ShowScramble />
 
-          <Box ref={ref} flex={2} display="flex" justifyContent="center" alignItems="center">
+          <div className="flex justify-center items-center flex-[2]" ref={ref}>
             <CreateTime container={ref} />
-          </Box>
+          </div>
 
           <ScrambledPuzzle />
-        </Box>
-      </Box>
-    </HomeContainer>
+        </div>
+      </div>
+      <div className="drawer-side">
+        <label for="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
+        <ul className="p-4 w-64 min-h-full bg-base-200">
+          <Drawer />
+        </ul>
+      </div>
+    </div>
   )
 }
 
