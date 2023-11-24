@@ -5,7 +5,6 @@ import {
   TimerStatuses,
 } from "@/modules/times/shared/times";
 import { WCAEvent } from "@/modules/shared/event";
-import { timesByEvent } from "@/selectors/times";
 
 const initialState: TimerReducerState = {
   results: [],
@@ -32,7 +31,9 @@ const timerReducer = createSlice({
     },
 
     removeAllResults: (state) => {
-      const results = timesByEvent(state);
+      const results = state.results.filter(
+        (timeResult) => timeResult.event !== state.event,
+      );
       return Object.assign({}, state, { results });
     },
 

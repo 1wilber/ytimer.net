@@ -1,25 +1,30 @@
-// Components
+// components
 import { ModeSwitcher } from "../mode-switcher";
-
-import { useDispatch } from 'react-redux';
-import { removeAllResults } from "@/reducers/timerReducer"
-// Logo import
-import Logo from '@/assets/ytimer-logo.png'
 import { TimesList } from "@/modules/times/list";
 import { EventsList } from "@/modules/events/list";
-import AverageInfo from "../average-info";
+import { AverageInfo } from "../average-info";
 
-const Drawer = () => {
-  const dispatch = useDispatch()
+// assets
+import Logo from "@/assets/ytimer-logo.png";
+
+// redux
+import { removeAllResults } from "@/reducers/timerReducer";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+
+export const Drawer = () => {
+  const dispatch = useAppDispatch();
+  const { event } = useAppSelector((state) => state.timer);
 
   function handleRemoveAllTime() {
-    const response = confirm('Deseas eliminar todo los tiempos?')
-    if (!response) return
+    const response = confirm(
+      `Deseas eliminar todo los tiempos para la categoria ${event} ?`,
+    );
+    if (!response) return;
 
-    dispatch(removeAllResults())
+    dispatch(removeAllResults());
     setTimeout(() => {
-      document.activeElement.blur()
-    }, 0)
+      document.activeElement.blur();
+    }, 0);
   }
 
   return (
@@ -33,7 +38,7 @@ const Drawer = () => {
           <ModeSwitcher />
         </div>
 
-        <div className="w-full mb-3" >
+        <div className="w-full mb-3">
           <EventsList />
         </div>
 
@@ -41,7 +46,6 @@ const Drawer = () => {
           <AverageInfo avgTarget={5} />
           <AverageInfo avgTarget={12} />
         </div>
-
 
         <div>
           <button
@@ -54,7 +58,5 @@ const Drawer = () => {
       </div>
       <TimesList />
     </>
-  )
-}
-
-export default Drawer
+  );
+};
