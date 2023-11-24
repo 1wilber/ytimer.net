@@ -1,14 +1,7 @@
-import Home from "@/screens/Home"
-import { Analytics } from '@vercel/analytics/react';
+import Home from "@/screens/Home";
 
 function App() {
-
-  return (
-    <>
-      <Home />
-      <Analytics />
-    </>
-  )
+  return <Home />;
 }
 
-export default App
+export default App;

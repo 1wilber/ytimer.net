@@ -4,12 +4,14 @@ import { ShowScramble } from "@/modules/scramble/show";
 import { CreateTime } from "@/modules/times/create";
 import { ScrambledPuzzle } from "@/modules/scramble/scrambled-puzzle";
 import { Drawer } from "@/components/Home/Drawer";
+import { Analytics } from "@vercel/analytics/react";
 
 function Home() {
   const ref = useRef(null);
 
   return (
     <div className="drawer lg:drawer-open h-full">
+      <Analytics />
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div className="w-full navbar bg-base-100 lg:hidden">
