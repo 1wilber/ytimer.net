@@ -3,11 +3,11 @@ import type { WCAEvent } from "@/modules/shared/event";
 export interface TimerReducerState {
   results: TimeResult[];
   event: WCAEvent;
-  status: TimerStatus;
+  status: TimerStatuses;
 }
 
 export interface TimeResult {
-  id: string;
+  id: number;
   time: number;
   event: WCAEvent;
   scramble: string;

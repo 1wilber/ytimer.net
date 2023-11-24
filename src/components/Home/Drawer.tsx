@@ -1,5 +1,5 @@
 // components
-import { ModeSwitcher } from "../mode-switcher";
+import { ModeSwitcher } from "@/components/mode-switcher";
 import { TimesList } from "@/modules/times/list";
 import { EventsList } from "@/modules/events/list";
 import { AverageInfo } from "../average-info";
@@ -23,7 +23,7 @@ export const Drawer = () => {
 
     dispatch(removeAllResults());
     setTimeout(() => {
-      document.activeElement.blur();
+      (document.activeElement as HTMLElement).blur();
     }, 0);
   }
 
