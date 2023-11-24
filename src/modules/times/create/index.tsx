@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
 import useTimer from "@/hooks/useTimer";
 import useKeyUp from "@/hooks/useKeyUp";
 import { msToTime } from "@/utils";
@@ -7,19 +6,20 @@ import useTouchEnd from "@/hooks/useTouchEnd";
 import "./create-time.styles.css";
 import { fetchScramble } from "@/reducers/scramblerReducer";
 import { addResult } from "@/reducers/timerReducer";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
 interface CreateTimeProps {
-  container: React.MutableRefObject<HTMLDivElement>;
+  container: React.MutableRefObject<null>;
 }
 
 export const CreateTime = (props: CreateTimeProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { container } = props;
 
   const { start, stop, lastTimeMs, currentTimeMs } = useTimer();
   const [loading, setLoading] = useState(true);
-  const { currentScramble } = useSelector(({ scramble }) => scramble);
-  const { event, status, results } = useSelector(({ timer }) => timer);
+  const { currentScramble } = useAppSelector(({ scramble }) => scramble);
+  const { event, status, results } = useAppSelector(({ timer }) => timer);
 
   function handleStop() {
     stop();

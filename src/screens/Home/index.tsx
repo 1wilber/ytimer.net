@@ -1,12 +1,12 @@
-import Drawer from "@/components/Home/Drawer"
-import Logo from '@/assets/ytimer-logo.png'
-import { useRef, useState } from "react";
+import Logo from "@/assets/ytimer-logo.png";
+import { useRef } from "react";
 import { ShowScramble } from "@/modules/scramble/show";
 import { CreateTime } from "@/modules/times/create";
-import { ScrambledPuzzle } from '@/modules/scramble/scrambled-puzzle';
+import { ScrambledPuzzle } from "@/modules/scramble/scrambled-puzzle";
+import { Drawer } from "@/components/Home/Drawer";
 
 function Home() {
-  const ref = useRef(null)
+  const ref = useRef(null);
 
   return (
     <div className="drawer lg:drawer-open h-full">
@@ -14,16 +14,31 @@ function Home() {
       <div className="drawer-content flex flex-col">
         <div className="w-full navbar bg-base-100 lg:hidden">
           <div className="flex-none lg:hidden">
-            <label for="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <label
+              htmlFor="my-drawer-3"
+              aria-label="open sidebar"
+              className="btn btn-square btn-ghost"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-6 h-6 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
             </label>
           </div>
           <div className="flex-1 px-2 mx-2 lg:hidden">
             <img src={Logo} alt="logo" className="h-10" />
           </div>
           <div className="flex-none hidden lg:block">
-            <ul className="menu menu-horizontal">
-            </ul>
+            <ul className="menu menu-horizontal"></ul>
           </div>
         </div>
 
@@ -38,13 +53,17 @@ function Home() {
         </div>
       </div>
       <div className="drawer-side">
-        <label for="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
+        <label
+          htmlFor="my-drawer-3"
+          aria-label="close sidebar"
+          className="drawer-overlay"
+        ></label>
         <ul className="p-4 w-64 min-h-full bg-base-200">
           <Drawer />
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
