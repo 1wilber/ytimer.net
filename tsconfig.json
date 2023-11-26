@@ -30,7 +30,8 @@
     }
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "@testing-library/jest-dom"
   ],
   "references": [
     {
