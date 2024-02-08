@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { randomScrambleForEvent } from "cubing/scramble";
-import type { WCAEvent } from "../modules/shared/event";
 import { ScrambleReducerState } from "@/modules/scramble/shared/scramble";
+import { WCAEvent } from "@/models";
 
 const initialState: ScrambleReducerState = {
   currentScramble: "",

@@ -4,7 +4,7 @@ import {
   TimerReducerState,
   TimerStatuses,
 } from "@/modules/times/shared/times";
-import { WCAEvent } from "@/modules/shared/event";
+import { WCAEvent } from "@/models";
 
 const initialState: TimerReducerState = {
   results: [],
