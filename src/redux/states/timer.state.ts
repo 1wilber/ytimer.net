@@ -1,7 +1,8 @@
 import type { TimerStatuses, WCAEvent } from "@/models";
+import { Result } from "@/models/result.model";
 
 export interface TimerState {
-  results: TimeResult[];
+  results: Result[];
   event: WCAEvent;
   status: TimerStatuses;
 }
