@@ -2,16 +2,14 @@ import { useAppSelector } from "@/hooks/redux";
 import { CircularProgress, Container, Typography } from "@mui/material";
 
 const DisplayScramble = () => {
-  const { loading, currentScramble } = useAppSelector(
-    ({ scramble }) => scramble,
-  );
+  const { loading, current } = useAppSelector(({ scramble }) => scramble);
 
   return (
-    <Container>
+    <Container style={{ textAlign: "center" }}>
       {loading ? (
         <CircularProgress />
       ) : (
-        <Typography variant="body1">{currentScramble}</Typography>
+        <Typography variant="body1">{current}</Typography>
       )}
     </Container>
   );

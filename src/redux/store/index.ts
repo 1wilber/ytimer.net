@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, } from "@reduxjs/toolkit";
 import { rootReducer } from "@/redux/reducers";
 import {
   persistStore,
@@ -9,8 +9,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { TimerReducerState } from "@/modules/times/shared/times";
-import { ScrambleReducerState } from "@/modules/scramble/shared/scramble";
+import { TimerState } from "../states/timer.state";
+import { ScrambleState } from "@/redux/states";
+import { changeEventMiddleware } from "@/redux/middleware";
 
 const store = configureStore({
   reducer: rootReducer,
@@ -19,15 +20,15 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).prepend(changeEventMiddleware),
 });
 
 const persistor = persistStore(store);
 export { store, persistor };
 
 export type StoreState = {
-  timer: TimerReducerState;
-  scramble: ScrambleReducerState;
+  timer: TimerState;
+  scramble: ScrambleState;
 };
 
 export type AppDispatch = typeof store.dispatch;

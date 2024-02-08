@@ -6,13 +6,13 @@ import { events } from "@/constants";
 
 const PreviewScramble = () => {
   const { event } = useAppSelector(({ timer }) => timer);
-  const { currentScramble } = useAppSelector(({ scramble }) => scramble);
+  const { current: scramble } = useAppSelector(({ scramble }) => scramble);
 
   const DisplayScrambledPuzzle = () => {
     return createElement("twisty-player", {
       puzzle: events[event],
       style: { width: "inherit", height: "150px" },
-      alg: currentScramble,
+      alg: scramble,
       visualization: "2D",
       background: "none",
       "control-panel": "none",

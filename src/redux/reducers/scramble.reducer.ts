@@ -11,8 +11,12 @@ const initialState: ScrambleState = {
 const fetch = createAsyncThunk(
   "scramble/fetch",
   async (event: WCAEvent) => {
+    try {
     const scramble = await randomScrambleForEvent(event);
     return scramble.toString();
+    } catch (error) {
+      console.log(error);
+    }
   },
 );
 
