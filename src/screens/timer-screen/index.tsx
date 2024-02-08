@@ -7,7 +7,6 @@ import { EventSelector } from "./components/event-selector";
 const TimerScreen = () => {
   return (
     <Grid height="100%" container spacing={2}>
-
       <Grid
         item
         xs={12}

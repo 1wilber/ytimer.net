@@ -1,15 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import {
-  TimeResult,
-  TimerReducerState,
-  TimerStatuses,
-} from "@/modules/times/shared/times";
-import { WCAEvent } from "@/models";
+import { TimerStatuses, WCAEvent } from "@/models";
+import { TimerState } from "@/redux/states/timer.state";
+import { Result } from "@/models/result.model";
 
-const initialState: TimerReducerState = {
+const initialState: TimerState = {
   results: [],
   event: "333",
-  status: "stopped",
+  status: TimerStatuses.stopped,
 };
 
 const timerReducer = createSlice({
@@ -17,13 +14,13 @@ const timerReducer = createSlice({
   initialState,
   reducers: {
     // result actions
-    addResult: (state, action: PayloadAction<TimeResult>) => {
+    addResult: (state, action: PayloadAction<Result>) => {
       const results = [action.payload, ...state.results];
 
       return Object.assign({}, state, { results });
     },
 
-    removeResult: (state, action: PayloadAction<TimeResult>) => {
+    removeResult: (state, action: PayloadAction<Result>) => {
       const results = state.results.filter(
         (currentTime) => currentTime.id != action.payload.id,
       );
@@ -57,4 +54,4 @@ export const {
   removeAllResults,
   updateEvent,
 } = actions;
-export { initialState, reducer as timerReducer };
+export { initialState, reducer };

@@ -1,8 +1,7 @@
 import { events } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { WCAEvent } from "@/models";
-import { updateEvent } from "@/reducers/timerReducer";
-import { MenuItem, NativeSelect, Select } from "@mui/material";
+import { updateEvent } from "@/redux/reducers/timer.reducer";
+import { MenuItem,  Select } from "@mui/material";
 
 const EventSelector = () => {
   const { event } = useAppSelector(({ timer }) => timer);

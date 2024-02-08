@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { randomScrambleForEvent } from "cubing/scramble";
-import { ScrambleReducerState } from "@/modules/scramble/shared/scramble";
 import { WCAEvent } from "@/models";
+import { ScrambleState } from "../states";
 
-const initialState: ScrambleReducerState = {
-  currentScramble: "",
+const initialState: ScrambleState = {
+  current: "",
   loading: true,
 };
 
-const fetchScramble = createAsyncThunk(
-  "scramble/generate",
+const fetch = createAsyncThunk(
+  "scramble/fetch",
   async (event: WCAEvent) => {
     const scramble = await randomScrambleForEvent(event);
     return scramble.toString();
@@ -22,17 +22,16 @@ const scrambleSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(fetchScramble.fulfilled, (state, action) => {
-      state.currentScramble = action.payload as WCAEvent;
+    builder.addCase(fetch.fulfilled, (state, action) => {
+      state.current = action.payload as WCAEvent;
       state.loading = false;
     });
 
-    builder.addCase(fetchScramble.pending, (state) => {
+    builder.addCase(fetch.pending, (state) => {
       state.loading = true;
     });
   },
 });
 
 const { reducer } = scrambleSlice;
-export { initialState };
-export { reducer as scrambleReducer, fetchScramble };
+export { reducer, fetch, initialState };

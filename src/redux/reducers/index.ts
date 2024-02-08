@@ -1,7 +1,7 @@
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import { persistReducer } from "redux-persist";
-import { scrambleReducer } from "./scramblerReducer";
-import { timerReducer } from "./timerReducer";
+import { reducer as scrambleReducer } from "@/redux/reducers/scramble.reducer";
+import { reducer as timerReducer } from "@/redux/reducers/timer.reducer";
 const STORAGE_KEY = "YTIMER__STORAGE";
 const persistConfig = {
   key: STORAGE_KEY,
