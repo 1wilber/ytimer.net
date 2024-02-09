@@ -4,32 +4,27 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store, persistor } from "@/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 import "./assets/main.css";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-
 
 // fetch scramble on app load
+
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={darkTheme}>
-          <CssBaseline />
+        <ChakraProvider theme={theme}>
           <App />
-        </ThemeProvider>
+        </ChakraProvider>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

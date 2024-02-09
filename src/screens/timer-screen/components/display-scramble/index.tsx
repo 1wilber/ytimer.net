@@ -1,15 +1,15 @@
 import { useAppSelector } from "@/hooks/redux";
-import { CircularProgress, Container, Typography } from "@mui/material";
+import { Text, Container } from "@chakra-ui/react";
 
 const DisplayScramble = () => {
   const { loading, current } = useAppSelector(({ scramble }) => scramble);
 
   return (
-    <Container style={{ textAlign: "center" }}>
+    <Container>
       {loading ? (
-        <CircularProgress />
+        <Text variant="body1">Loading ...</Text>
       ) : (
-        <Typography variant="body1">{current}</Typography>
+        <Text fontSize="x-large">{current}</Text>
       )}
     </Container>
   );

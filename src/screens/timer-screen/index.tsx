@@ -1,55 +1,33 @@
-import { Grid } from "@mui/material";
 import { DisplayScramble } from "./components/display-scramble";
 import { TimerView } from "./components/timer";
 import { PreviewScramble } from "./components/preview-scramble";
 import { EventSelector } from "./components/event-selector";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 const TimerScreen = () => {
   return (
-    <Grid height="100%" container spacing={2}>
-      <Grid
-        item
-        xs={12}
-        display="flex"
-        justifyContent="center"
-        alignItems="flex-start"
-      >
-        <EventSelector />
-      </Grid>
+    <Grid
+      h="100%"
+      templateColumns="repeat(1, 1fr)"
+      templateRows="repeat(4, 1fr)"
+    >
+      <GridItem display="flex" justifyContent="center" alignItems="flex-start">
+        {/* <EventSelector /> */}
+      </GridItem>
 
-      <Grid
-        item
-        xs={12}
-        display="flex"
-        justifyContent="center"
-        alignItems="flex-start"
-      >
+      <GridItem display="flex" justifyContent="center" alignItems="flex-start">
         <DisplayScramble />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
+      </GridItem>
+      <GridItem display="flex" justifyContent="center" alignItems="flex-start">
         <TimerView />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        display="flex"
-        justifyContent="flex-end"
-        alignItems="flex-end"
-      >
-        <Grid container spacing={1} paddingX={1} paddingY={0}>
-          <Grid item xs={6}>
+      </GridItem>
+      <GridItem>
+        <Grid h="100%" templateColumns="repeat(2, 1fr)">
+          <GridItem h="100%">
             <PreviewScramble />
-          </Grid>
-
-          <Grid item xs={6}></Grid>
+          </GridItem>
         </Grid>
-      </Grid>
+      </GridItem>
     </Grid>
   );
 };

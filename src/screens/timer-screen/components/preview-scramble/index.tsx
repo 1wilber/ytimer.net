@@ -1,6 +1,6 @@
 import "cubing/twisty";
 import { useAppSelector } from "@/hooks/redux";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardBody } from "@chakra-ui/react";
 import { createElement } from "react";
 import { events } from "@/constants";
 
@@ -20,10 +20,10 @@ const PreviewScramble = () => {
   };
 
   return (
-    <Card>
-      <CardContent style={{padding: 5}}>
+    <Card p={0}>
+      <CardBody>
         <DisplayScrambledPuzzle />
-      </CardContent>
+      </CardBody>
     </Card>
   );
 };
